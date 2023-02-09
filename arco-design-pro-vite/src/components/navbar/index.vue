@@ -13,14 +13,11 @@
           Arco Pro
         </a-typography-title>
         <icon-menu-fold
-          v-if="!topMenu && appStore.device === 'mobile'"
+          v-if="appStore.device === 'mobile'"
           style="font-size: 22px; cursor: pointer"
           @click="toggleDrawerMenu"
         />
       </a-space>
-    </div>
-    <div class="center-side">
-      <Menu v-if="topMenu" />
     </div>
     <ul class="right-side">
       <li>
@@ -200,7 +197,6 @@
   import { LOCALE_OPTIONS } from '@/locale';
   import useLocale from '@/hooks/locale';
   import useUser from '@/hooks/user';
-  import Menu from '@/components/menu/index.vue';
   import MessageBox from '../message-box/index.vue';
 
   const appStore = useAppStore();
@@ -215,7 +211,6 @@
   const theme = computed(() => {
     return appStore.theme;
   });
-  const topMenu = computed(() => appStore.topMenu && appStore.menu);
   const isDark = useDark({
     selector: 'body',
     attribute: 'arco-theme',
@@ -275,10 +270,6 @@
     display: flex;
     align-items: center;
     padding-left: 20px;
-  }
-
-  .center-side {
-    flex: 1;
   }
 
   .right-side {

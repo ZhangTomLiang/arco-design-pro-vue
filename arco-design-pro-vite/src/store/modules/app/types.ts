@@ -5,7 +5,6 @@ export interface AppState {
   colorWeak: boolean;
   navbar: boolean;
   menu: boolean;
-  topMenu: boolean;
   hideMenu: boolean;
   menuCollapse: boolean;
   footer: boolean;

@@ -26,7 +26,6 @@
         },
       });
 
-      const topMenu = computed(() => appStore.topMenu);
       const openKeys = ref<string[]>([]);
       const selectedKey = ref<string[]>([]);
 
@@ -127,7 +126,6 @@
 
       return () => (
         <a-menu
-          mode={topMenu.value ? 'horizontal' : 'vertical'}
           v-model:collapsed={collapsed.value}
           v-model:open-keys={openKeys.value}
           show-collapse-button={appStore.device !== 'mobile'}
@@ -135,7 +133,7 @@
           selected-keys={selectedKey.value}
           auto-open-selected={true}
           level-indent={34}
-          style="height: 100%;width:100%;"
+          style="height: 100%"
           onCollapse={setCollapse}
         >
           {renderSubMenu()}
